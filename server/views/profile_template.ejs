@@ -1,0 +1,1163 @@
+<%- include('partials/prologue.ejs', {title: `${profile.name} MBTI | Boo Personality Database`, description: `What is ${profile.name}'s MBTI personality type? Find out what ${profile.name}'s Myers Briggs, Enneagram, and Zodiac sign are in the Soulverse, the MBTI personality database of celebrities and fictional characters.`}) %>
+
+                <div class="row sqs-row">
+                  <%- include('partials/categories.ejs') %>
+                  <div class="col sqs-col-10 sqs-col-page">
+                    <div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-2e6206ba777e9c6841a8">
+                      <div class="sqs-block-content">
+                        <h2 class="name"><%= profile.name %> <span style="color: #4edcd8; font-weight: bold">MBTI</span>
+                        </h2>
+                      </div>
+                    </div>
+                    <div class="row sqs-row">
+                      <div class="col sqs-col-photo">
+                        <div class="sqs-block image-block sqs-block-image" data-aspect-ratio="136.28691983122363" data-block-type="5" id="block-1f47fbbe7cae8fdeba8c">
+                          <div class="sqs-block-content">
+                            <div class="image-block-outer-wrapper layout-caption-below design-layout-inline combination-animation-site-default individual-animation-site-default individual-text-animation-site-default" data-test="image-block-inline-outer-wrapper">
+                              <noscript>
+                                <img class="picture" src="<%= profile.image %>" alt="<%= profile.image %>" />
+                              </noscript>
+                              <img class="thumb-image picture" data-src="<%= profile.image %>" data-image="<%= profile.image %>" data-image-dimensions="" data-image-focal-point="0.5,0.5" alt="<%= profile.image %>" data-load="false" data-image-id="60ba7def6ab3a1722eeb654b" data-type="image" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col sqs-col-trait">
+                        <div class="row sqs-row">
+                          <div class="col sqs-col-sub-trait">
+                            <div class="trait">
+                              <p class="center" style="height: 25%; line-height: 1">MBTI</p>
+                              <p class="trait-font center" style="height: 40%"><%= profile.mbti %></p>
+                            </div>
+                          </div>
+                          <div class="col sqs-col-sub-trait">
+                            <div class="trait">
+                              <p class="center" style="height: 25%; line-height: 1">Enneagram</p>
+                              <p class="trait-font center" style="height: 40%"><%= profile.enneagram %></p>
+                            </div>
+                          </div>
+                          <div class="col sqs-col-sub-trait">
+                            <div class="trait">
+                              <p class="center" style="height: 25%; line-height: 1">Socionics</p>
+                              <p class="trait-font center" style="height: 40%"><%= profile.socionics %></p>
+                            </div>
+                          </div>
+                          <div class="col sqs-col-sub-trait">
+                            <div class="trait">
+                              <p class="center" style="height: 25%; line-height: 1">Big 5 Sloan</p>
+                              <p class="trait-font center" style="height: 40%"><%= profile.sloan %></p>
+                            </div>
+                          </div>
+                          <div class="col sqs-col-sub-trait">
+                            <div class="trait">
+                              <p class="center" style="height: 25%; line-height: 1">Instinctual Variant</p>
+                              <p class="trait-font center" style="height: 40%"><%= profile.variant %></p>
+                            </div>
+                          </div>
+                          <div class="col sqs-col-sub-trait">
+                            <div class="trait">
+                              <p class="center" style="height: 25%; line-height: 1">Tritype</p>
+                              <p class="trait-font center" style="height: 40%"><%= profile.tritype %></p>
+                            </div>
+                          </div>
+                          <div class="col sqs-col-sub-trait">
+                            <div class="trait">
+                              <p class="center" style="height: 25%; line-height: 1">Attitudinal Psyche</p>
+                              <p class="trait-font center" style="height: 40%"><%= profile.psyche %></p>
+                            </div>
+                          </div>
+                          <div class="col sqs-col-sub-trait">
+                            <div class="trait">
+                              <p class="center" style="height: 25%; line-height: 1">Temperament</p>
+                              <div class="trait-font-special center" style="height: 40%"><%= profile.temperaments %></div>
+                              <!-- <p class="trait-font-special"><%= profile.temperaments %></p> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-8d8156722d8e328e16b8">
+                      <div class="sqs-block-content">
+                        <p class="" style="white-space:pre-wrap;"><%= profile.description %></p>
+                      </div>
+                    </div>
+
+                    <!-- Comment Section - Aligned with profile traits -->
+                    <div class="sqs-block html-block sqs-block-html" data-block-type="2">
+                      <div class="sqs-block-content">
+                        <div class="comments-header">
+                          <h5>Comments</h5>
+                          <button id="toggle-comment" class="vote-comment-button">Vote/Comment</button>
+                        </div>
+                        <div class="filter-bar">
+                          <div class="filter-chips">
+                            <button class="filter-chip active" data-trait="all">All</button>
+                            <button class="filter-chip" data-trait="mbti">MBTI</button>
+                            <button class="filter-chip" data-trait="enneagram">Enneagram</button>
+                            <button class="filter-chip" data-trait="zodiac" style="background-image: url('/static/space.png');">Zodiac</button>
+                            <!-- <button class="filter-chip" data-trait="variant">Instinctual</button>
+                            <button class="filter-chip" data-trait="tritype">Tritype</button>
+                            <button class="filter-chip" data-trait="socionics">Socionics</button>
+                            <button class="filter-chip" data-trait="sloan">Sloan</button>
+                            <button class="filter-chip" data-trait="psyche">Attitudinal</button> -->
+                          </div>
+                          <div class="sort-controls">
+                            <button class="sort-button active" data-sort="recent">Recent</button>
+                            <button class="sort-button" data-sort="best">Best</button>
+                          </div>
+                        </div>
+                        <div class="comments-container">
+                          <!-- Comment Form -->
+                          <div class="comment-form" style="display: none;">
+                            <div class="comment-box">
+                              
+                              <input type="text" id="comment-title" class="title-input" placeholder="Judul komentar" maxlength="50">
+                               <div class="trait-select-wrapper">
+                                  <!-- Allow users to optionally select one or more personality systems -->
+                                  <div class="system-chips">
+                                    <button type="button" class="system-chip" data-system="mbti">MBTI</button>
+                                    <button type="button" class="system-chip" data-system="enneagram">Enneagram</button>
+                                    <button type="button" class="system-chip" data-system="zodiac" style="background-image: url('/static/space.png');">Zodiac</button>
+                                  </div>
+                                  <!-- System specific options (hidden until system selected) -->
+                                  <div class="system-options">
+                                    <div class="mbti-options" style="display:none; margin-top:0rem;">
+                                      <select class="option-select" data-system="mbti" size="16">
+                                        <option value="INFT">INFT</option>
+                                        <option value="INFJ">INFJ</option>
+                                        <option value="ENFT">ENFT</option>
+                                        <option value="ENFJ">ENFJ</option>
+                                        <option value="INTJ">INTJ</option>
+                                        <option value="INTP">INTP</option>
+                                        <option value="ENTP">ENTP</option>
+                                        <option value="ENTJ">ENTJ</option>
+                                        <option value="ISFP">ISFP</option>
+                                        <option value="ISFJ">ISFJ</option>
+                                        <option value="ESFP">ESFP</option>
+                                        <option value="ESFJ">ESFJ</option>
+                                        <option value="ISTP">ISTP</option>
+                                        <option value="ISTJ">ISTJ</option>
+                                        <option value="ESTP">ESTP</option>
+                                        <option value="ESTJ">ESTJ</option>
+                                      </select>
+                                    </div>
+                                    <div class="enneagram-options" style="display:block; margin-top:0rem;">
+                                      <select class="option-select"  style="display:block; data-system="enneagram" size="16">
+                                        <option value="1w2">1w2</option>
+                                        <option value="2w3">2w3</option>
+                                        <option value="3w2">3w2</option>
+                                        <option value="3w4">3w4</option>
+                                        <option value="4w3">4w3</option>
+                                        <option value="4w5">4w5</option>
+                                        <option value="5w4">5w4</option>
+                                        <option value="5w6">5w6</option>
+                                        <option value="6w5">6w5</option>
+                                        <option value="6w7">6w7</option>
+                                        <option value="7w6">7w6</option>
+                                        <option value="7w8">7w8</option>
+                                        <option value="8w7">8w7</option>
+                                        <option value="8w9">8w9</option>
+                                        <option value="9w8">9w8</option>
+                                        <option value="9w1">9w1</option>
+                                      </select>
+                                      
+                                    </div>
+                                    <div class="zodiac-options" style="display:none; margin-top:0rem;">
+                                      <select class="option-select" data-system="zodiac" size="12">
+                                        <option value="Aries">Aries</option>
+                                        <option value="Taurus">Taurus</option>
+                                        <option value="Gemini">Gemini</option>
+                                        <option value="Cancer">Cancer</option>
+                                        <option value="Leo">Leo</option>
+                                        <option value="Virgo">Virgo</option>
+                                        <option value="Libra">Libra</option>
+                                        <option value="Scorpio">Scorpio</option>
+                                        <option value="Sagittarius">Sagittarius</option>
+                                        <option value="Capricorn">Capricorn</option>
+                                        <option value="Aquarius">Aquarius</option>
+                                        <option value="Pisces">Pisces</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                              <textarea id="comment-text" class="comment-input" placeholder="add a comment..." rows="3"></textarea>
+                              <div class="comment-box-footer">
+                               
+                                <button id="submit-comment" class="comment-button">
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Comment List -->
+                          <div class="comments-list">
+                            <!-- Comments will be added here dynamically -->
+                            <div class="comment">
+                              <div class="comment-header">
+                                  <div class="commenter-info">
+                                    <img src="static/40.jpg" class="commenter-avatar" alt="Avatar">
+                                    <div class="commenter-details">
+                                      <span class="commenter-name">John Smith</span>
+                                      <span class="comment-trait">MBTI</span>
+                                    </div>
+                                  </div>
+                                  <span class="comment-date">4 Nov 2025</span>
+                                </div>
+                                <h4 class="comment-title">Contoh Judul</h4>
+                                <p class="comment-content">Saya setuju dengan tipe ISFJ. Dapat dilihat dari caranya yang sangat detail dan perhatian terhadap kebutuhan orang lain.</p>
+                              <div class="comment-actions">
+                                <button class="like-button">
+                                  <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                  </svg>
+                                  <span class="like-count">12</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Script untuk handle komentar dengan localStorage -->
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const commentForm = document.querySelector('.comment-form');
+                    const commentsList = document.querySelector('.comments-list');
+                    const submitButton = document.getElementById('submit-comment');
+                    const commentText = document.getElementById('comment-text');
+                    const commentTitle = document.getElementById('comment-title');
+                    const systemChips = document.querySelectorAll('.system-chip');
+                    const optionSelects = document.querySelectorAll('.option-select');
+                    const toggleButton = document.getElementById('toggle-comment');
+                    const commentBox = document.querySelector('.comment-box');
+                    const profileId = '<%= profile.id %>';
+
+          function checkFormValidity() {
+            const hasTitle = commentTitle.value.trim().length > 0;
+            const hasDescription = commentText.value.trim().length > 0;
+            const hasSelectedSystem = Array.from(systemChips).some(cb => cb.classList.contains('active'));
+
+            // enable submit when user types title/description or selects any system
+            if (hasTitle || hasDescription || hasSelectedSystem) {
+              submitButton.classList.add('active');
+            } else {
+              submitButton.classList.remove('active');
+            }
+          }
+
+          // Monitor input fields and system checkboxes
+          commentTitle.addEventListener('input', checkFormValidity);
+          commentText.addEventListener('input', checkFormValidity);
+          // system chip buttons: toggle active state and show/hide their dropdowns
+          systemChips.forEach(chip => chip.addEventListener('click', function() {
+            const system = this.dataset.system;
+            const container = document.querySelector(`.${system}-options`);
+            const willBeActive = !this.classList.contains('active');
+
+            if (willBeActive) {
+              // Deactivate other chips and hide their containers so only this one shows
+              systemChips.forEach(c => { if (c !== this) c.classList.remove('active'); });
+              document.querySelectorAll('.system-options > div').forEach(div => div.style.display = 'none');
+
+              // Activate this chip and show its container
+              this.classList.add('active');
+              if (container) container.style.display = 'block';
+            } else {
+              // Deactivate this chip and hide/clear its container
+              this.classList.remove('active');
+              if (container) {
+                container.style.display = 'none';
+                container.querySelectorAll('select.option-select').forEach(sel => { for (let i=0;i<sel.options.length;i++) sel.options[i].selected = false; });
+              }
+            }
+
+            checkFormValidity();
+          }));
+
+          // Option select interactions: ensure only the dropdown with selections (or clicked) is visible
+          optionSelects.forEach(sel => {
+            sel.addEventListener('change', function() {
+              const system = this.dataset.system;
+              const anySelected = Array.from(this.options).some(o => o.selected);
+              const systemChip = Array.from(systemChips).find(cb => cb.dataset.system === system);
+
+              // Hide all other containers and deactivate other chips so only this one is visible
+              systemChips.forEach(c => { if (c !== systemChip) c.classList.remove('active'); });
+              document.querySelectorAll('.system-options > div').forEach(div => div.style.display = 'none');
+
+              if (anySelected) {
+                if (systemChip && !systemChip.classList.contains('active')) systemChip.classList.add('active');
+                const container = document.querySelector(`.${system}-options`);
+                if (container) container.style.display = 'block';
+              } else {
+                if (systemChip) systemChip.classList.remove('active');
+                const container = document.querySelector(`.${system}-options`);
+                if (container) container.style.display = 'none';
+              }
+
+              checkFormValidity();
+            });
+          });
+                    
+                    // Handle toggle comment form
+                    toggleButton.addEventListener('click', function() {
+                        if (commentForm.style.display === 'none') {
+                            commentForm.style.display = 'block';
+                            commentForm.style.animation = 'slideDown 0.3s ease-out';
+                            commentText.focus(); // Auto focus textarea
+                            toggleButton.textContent = 'Close';
+                        } else {
+                            commentForm.style.animation = 'slideUp 0.3s ease-out';
+                            setTimeout(() => {
+                                commentForm.style.display = 'none';
+                                toggleButton.textContent = 'Vote/Comment';
+                            }, 280);
+                        }
+                    });
+
+          // Load existing comments dari localStorage (kept simple here; filtering/sorting handled below)
+          function loadComments() {
+            const storageKey = `comments_${profileId}`;
+            const savedComments = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            commentsList.innerHTML = ''; // Clear existing comments
+                        
+            // filtering/sorting logic defined later (and used when called)
+            // but keep this fallback: render saved comments
+            savedComments.forEach(comment => {
+              addCommentToUI(comment);
+            });
+          }
+
+                    // Add comment to UI
+                    function addCommentToUI(comment) {
+                        const commentElement = document.createElement('div');
+                        commentElement.className = 'comment';
+                        // ensure comment has id and likes for compatibility
+                        if (!comment.id) comment.id = String(Date.now()) + Math.floor(Math.random()*1000);
+                        if (typeof comment.likes === 'undefined') comment.likes = 0;
+                        if (!comment.createdAt) {
+                            // try to parse existing date string, fallback to now
+                            const parsed = Date.parse(comment.date);
+                            comment.createdAt = isNaN(parsed) ? new Date().toISOString() : new Date(parsed).toISOString();
+                        }
+
+                        commentElement.dataset.id = comment.id;
+                        const likeCount = comment.likes || 0;
+                        const likeKey = `like_${profileId}_${comment.id}`;
+                        const userLiked = localStorage.getItem(likeKey) === 'true';
+
+            // Build systems/tags HTML (supports legacy single 'trait' value)
+            let systemsHtml = '';
+            if (Array.isArray(comment.systems) && comment.systems.length) {
+              systemsHtml = comment.systems.map(s => `<span class="comment-trait">${s.toUpperCase()}</span>`).join(' ');
+            } else if (comment.trait) {
+              systemsHtml = `<span class="comment-trait">${comment.trait.toUpperCase()}</span>`;
+            }
+            // Build trait-specific chips (e.g. MBTI values) from comment.traits if present
+            let traitsHtml = '';
+            if (comment.traits) {
+              Object.keys(comment.traits).forEach(sys => {
+                const vals = comment.traits[sys] || [];
+                vals.forEach(v => {
+                  traitsHtml += `<span class="comment-trait">${v}</span>`;
+                });
+              });
+            }
+
+                        commentElement.innerHTML = `
+              <div class="comment-header">
+                <div class="commenter-info">
+                  <img src="static/40.jpg" class="commenter-avatar" alt="Avatar">
+                  <div class="commenter-details">
+                    <span class="commenter-name">John Smith</span>
+                    ${systemsHtml} ${traitsHtml}
+                  </div>
+                </div>
+                <span class="comment-date">${comment.date}</span>
+              </div>
+              <h4 class="comment-title">${comment.title || ''}</h4>
+              <p class="comment-content">${comment.text}</p>
+                            <div class="comment-actions">
+                                <button class="like-button ${userLiked ? 'liked' : ''}">
+                                    <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                    <span class="like-count">${likeCount}</span>
+                                </button>
+                            </div>
+                        `;
+
+                        commentsList.insertBefore(commentElement, commentsList.firstChild);
+                        commentElement.style.animation = 'slideIn 0.3s ease-out';
+                    }
+
+
+          // Handle comment submitted
+          submitButton.addEventListener('click', function() {
+            const commentTitle = document.getElementById('comment-title');
+            // Validasi input: title and description required; systems are optional
+            if (!commentTitle.value.trim() || !commentText.value.trim()) {
+              alert('Please fill in both title and commment');
+              return;
+            }
+
+            // collect selected systems (optional)
+            const selectedSystems = Array.from(systemChips).filter(cb => cb.classList.contains('active')).map(cb => cb.dataset.system);
+            // collect selected options per system from dropdowns
+            const traits = {};
+            optionSelects.forEach(sel => {
+              const sys = sel.dataset.system;
+              const vals = Array.from(sel.options).filter(o => o.selected).map(o => o.value);
+              if (vals.length) traits[sys] = vals;
+            });
+
+            // create new comment object (include id, createdAt, likes, systems and traits)
+            const newComment = {
+              id: String(Date.now()) + Math.floor(Math.random()*1000),
+              title: commentTitle.value.trim(),
+              text: commentText.value.trim(),
+              trait: (traits.mbti && traits.mbti[0]) || selectedSystems[0] || '',
+              systems: selectedSystems,
+              traits: traits,
+              date: new Date().toLocaleDateString('id-ID'),
+              createdAt: new Date().toISOString(),
+              likes: 0,
+              profileId: profileId
+            };
+
+            // Save to localStorage
+            const storageKey = `comments_${profileId}`;
+            const existingComments = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            existingComments.unshift(newComment); // Add to beginning of array
+            localStorage.setItem(storageKey, JSON.stringify(existingComments));
+
+            // Add glow effect
+            commentBox.classList.add('submitted');
+            setTimeout(() => {
+                commentBox.classList.remove('submitted');
+            }, 1000);
+
+            // Update UI
+            addCommentToUI(newComment);
+
+            // Reset form
+            commentText.value = '';
+            commentTitle.value = '';
+            systemChips.forEach(cb => cb.classList.remove('active'));
+            optionSelects.forEach(sel => { for (let i=0;i<sel.options.length;i++) sel.options[i].selected = false; });
+            // hide all option containers
+            document.querySelectorAll('.system-options > div').forEach(c => c.style.display = 'none');
+            submitButton.classList.remove('active');
+          });
+          // Filter + Sort functionality
+          const filterChips = document.querySelectorAll('.filter-chip');
+          const sortButtons = document.querySelectorAll('.sort-button');
+          let activeFilter = 'all';
+          let activeSort = 'recent'; // 'recent' or 'best'
+
+          filterChips.forEach(chip => {
+            chip.addEventListener('click', function() {
+              // Remove active class from all chips
+              filterChips.forEach(c => c.classList.remove('active'));
+              // Add active class to clicked chip
+              this.classList.add('active');
+              // Update active filter
+              activeFilter = this.dataset.trait;
+              // Reload comments with filter
+              loadComments();
+            });
+          });
+
+          sortButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+              sortButtons.forEach(b => b.classList.remove('active'));
+              this.classList.add('active');
+              activeSort = this.dataset.sort;
+              loadComments();
+            });
+          });
+
+          // One-time migration: normalize legacy comment objects in localStorage
+          function migrateComments() {
+            try {
+              const storageKey = `comments_${profileId}`;
+              const raw = localStorage.getItem(storageKey);
+              if (!raw) return; // nothing to migrate
+              const saved = JSON.parse(raw || '[]');
+              let changed = false;
+
+              const MBTI_OPTIONS = ['INFT','INFJ','ENFT','ENFJ'];
+              const ENNEA_OPTIONS = ['1w2','2w3','3w2'];
+              const ZODIAC_OPTIONS = ['Aries','Taurus','Gemini'];
+
+              const migrated = saved.map((c, idx) => {
+                const copy = Object.assign({}, c);
+                // id
+                if (!copy.id) {
+                  copy.id = String(Date.now() + idx);
+                  changed = true;
+                }
+                // likes
+                if (typeof copy.likes === 'undefined') {
+                  copy.likes = 0;
+                  changed = true;
+                }
+                // createdAt
+                if (!copy.createdAt) {
+                  const parsed = Date.parse(copy.date);
+                  copy.createdAt = isNaN(parsed) ? new Date().toISOString() : new Date(parsed).toISOString();
+                  changed = true;
+                }
+                // systems: try to infer from existing fields
+                if (!Array.isArray(copy.systems) || copy.systems.length === 0) {
+                  // prefer existing systems if string
+                  if (typeof copy.systems === 'string' && copy.systems.trim()) {
+                    copy.systems = [copy.systems];
+                    changed = true;
+                  } else if (copy.trait) {
+                    const t = String(copy.trait).trim();
+                    if (MBTI_OPTIONS.includes(t)) {
+                      copy.systems = ['mbti'];
+                      copy.traits = copy.traits || {};
+                      copy.traits.mbti = copy.traits.mbti || [t];
+                      changed = true;
+                    } else if (ENNEA_OPTIONS.includes(t)) {
+                      copy.systems = ['enneagram'];
+                      copy.traits = copy.traits || {};
+                      copy.traits.enneagram = copy.traits.enneagram || [t];
+                      changed = true;
+                    } else if (ZODIAC_OPTIONS.includes(t)) {
+                      copy.systems = ['zodiac'];
+                      copy.traits = copy.traits || {};
+                      copy.traits.zodiac = copy.traits.zodiac || [t];
+                      changed = true;
+                    }
+                  } else {
+                    copy.systems = copy.systems || [];
+                  }
+                }
+                // ensure traits object exists
+                if (!copy.traits || typeof copy.traits !== 'object') {
+                  copy.traits = copy.traits || {};
+                  changed = true;
+                }
+                return copy;
+              });
+
+              if (changed) {
+                localStorage.setItem(storageKey, JSON.stringify(migrated));
+                console.log('[migration] normalized comments saved to', storageKey);
+              }
+            } catch (err) {
+              console.warn('Comment migration failed:', err);
+            }
+          }
+
+          // Load comments with filtering and sorting
+          function loadComments() {
+            const storageKey = `comments_${profileId}`;
+            const savedComments = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            commentsList.innerHTML = ''; // Clear existing comments
+
+            // Filter comments based on active filter
+            let filteredComments = savedComments.slice();
+            if (activeFilter !== 'all') {
+              filteredComments = filteredComments.filter(comment => {
+                // compatibility: comment.systems may be an array, older comments may have comment.trait
+                const systems = Array.isArray(comment.systems) ? comment.systems : (comment.systems ? [comment.systems] : []);
+                if (systems.length && systems.includes(activeFilter)) return true;
+                if (comment.trait && String(comment.trait) === String(activeFilter)) return true;
+                return false;
+              });
+            }
+
+            // Normalize missing fields for backward compatibility
+            filteredComments = filteredComments.map((c, idx) => {
+              const copy = Object.assign({}, c);
+              if (!copy.id) copy.id = String(Date.now() + idx);
+              if (typeof copy.likes === 'undefined') copy.likes = 0;
+              if (!copy.createdAt) {
+                const parsed = Date.parse(copy.date);
+                copy.createdAt = isNaN(parsed) ? new Date().toISOString() : new Date(parsed).toISOString();
+              }
+              if (!copy.traits) copy.traits = copy.traits || {};
+              return copy;
+            });
+
+            // Sort
+            if (activeSort === 'recent') {
+              filteredComments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            } else if (activeSort === 'best') {
+              filteredComments.sort((a, b) => (b.likes || 0) - (a.likes || 0));
+            }
+
+            // Add comments to UI
+            filteredComments.forEach(comment => {
+              addCommentToUI(comment);
+            });
+
+            // Show/hide no comments message
+            const noCommentsMessage = document.querySelector('.no-comments-message');
+            if (filteredComments.length === 0) {
+              if (!noCommentsMessage) {
+                const message = document.createElement('div');
+                message.className = 'no-comments-message';
+                message.textContent = activeFilter === 'all' 
+                  ? 'Belum ada komentar.' 
+                  : `Belum ada komentar untuk ${activeFilter.toUpperCase()}.`;
+                commentsList.appendChild(message);
+              }
+            } else if (noCommentsMessage) {
+              noCommentsMessage.remove();
+            }
+          }
+
+          // Run migration (if any legacy comments) and then initial load
+          migrateComments();
+          loadComments();
+
+          // CSS untuk styling
+
+          // Handle like button clicks (persist counts and per-user flag)
+          document.addEventListener('click', function(e) {
+            if (e.target.closest('.like-button')) {
+              const likeButton = e.target.closest('.like-button');
+              const likeCountEl = likeButton.querySelector('.like-count');
+              const currentCount = parseInt(likeCountEl.textContent) || 0;
+              const commentEl = likeButton.closest('.comment');
+              const commentId = commentEl ? commentEl.dataset.id : null;
+              if (!commentId) return;
+              const likeKey = `like_${profileId}_${commentId}`;
+              const storageKey = `comments_${profileId}`;
+
+              // Toggle like state
+              if (likeButton.classList.contains('liked')) {
+                // Unlike
+                likeButton.classList.remove('liked');
+                likeCountEl.textContent = Math.max(0, currentCount - 1);
+                localStorage.setItem(likeKey, 'false');
+
+                // decrement stored comment likes
+                const commentsArr = JSON.parse(localStorage.getItem(storageKey) || '[]');
+                const idx = commentsArr.findIndex(c => String(c.id) === String(commentId));
+                if (idx > -1) {
+                  commentsArr[idx].likes = Math.max(0, (commentsArr[idx].likes || 0) - 1);
+                  localStorage.setItem(storageKey, JSON.stringify(commentsArr));
+                }
+              } else {
+                // Like
+                likeButton.classList.add('liked');
+                likeCountEl.textContent = currentCount + 1;
+                likeButton.style.animation = 'heartBeat 0.5s';
+                setTimeout(() => { likeButton.style.animation = ''; }, 500);
+                localStorage.setItem(likeKey, 'true');
+
+                // increment stored comment likes
+                const commentsArr = JSON.parse(localStorage.getItem(storageKey) || '[]');
+                const idx = commentsArr.findIndex(c => String(c.id) === String(commentId));
+                if (idx > -1) {
+                  commentsArr[idx].likes = (commentsArr[idx].likes || 0) + 1;
+                  localStorage.setItem(storageKey, JSON.stringify(commentsArr));
+                }
+              }
+            }
+          });
+
+                    // CSS untuk styling
+                    const style = document.createElement('style');
+                    style.textContent = `
+            .filter-bar {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 0.5rem 0; /* vertical gap between rows */
+              margin-bottom: 1.5rem;
+              padding: 0 0.5rem;
+            }
+                        .filter-chips {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 0.6rem;
+                        }
+                        .filter-chip {
+                            padding: 0.5rem 1rem;
+                            border: 1px solid #e0e0e0;
+                            border-radius: 20px;
+                            background: white;
+                            color: #6B6A6A;
+                            font-size: 0.9rem;
+                            cursor: pointer;
+                            transition: all 0.2s ease;
+                            white-space: nowrap;
+                        }
+                        .filter-chip:hover {
+                            border-color: #4EDCD8;
+                            color: #4EDCD8;
+                            transform: translateY(-1px);
+                            box-shadow: 0 2px 4px rgba(78, 220, 216, 0.1);
+                        }
+                        .filter-chip.active {
+                            background: #4EDCD8;
+                            color: white;
+                            border-color: #4EDCD8;
+                            box-shadow: 0 2px 4px rgba(78, 220, 216, 0.2);
+                        }
+            /* Make sort buttons look like filter chips */
+            .sort-controls {
+              display: flex;
+              gap: 0.5rem;
+              margin-left: 0; /* left-align under filters */
+              margin-top: 0.25rem;
+            }
+            .sort-button {
+              padding: 0.5rem 1rem;
+              border: 1px solid #e0e0e0;
+              border-radius: 20px;
+              background: white;
+              color: #6B6A6A;
+              font-size: 0.9rem;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              white-space: nowrap;
+            }
+            .sort-button:hover {
+              border-color: #4EDCD8;
+              color: #4EDCD8;
+              transform: translateY(-1px);
+              box-shadow: 0 2px 4px rgba(78, 220, 216, 0.1);
+            }
+            .sort-button.active {
+              background: #4EDCD8;
+              color: white;
+              border-color: #4EDCD8;
+              box-shadow: 0 2px 4px rgba(78, 220, 216, 0.2);
+            }
+                        @keyframes slideDown {
+                            from {
+                                opacity: 0;
+                                transform: translateY(-20px);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+                        @keyframes slideUp {
+                            from {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                            to {
+                                opacity: 0;
+                                transform: translateY(-20px);
+                            }
+                        }
+                        .comments-header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 1rem;
+                            padding: 0 0.5rem;
+                        }
+                        .comments-header h5 {
+                            margin: 0;
+                            font-size: 1.1rem;
+                            color: #333;
+                        }
+                        .vote-comment-button {
+                            padding: 0.6rem 1.2rem;
+                            background: #4edcd8;
+                            color: white;
+                            border: none;
+                            border-radius: 20px;
+                            cursor: pointer;
+                            font-size: 0.9rem;
+                            font-weight: 500;
+                            transition: all 0.2s ease;
+                            box-shadow: 0 2px 4px rgba(78, 220, 216, 0.2);
+                        }
+                        .vote-comment-button:hover {
+                            background: #3cc8c4;
+                            box-shadow: 0 4px 8px rgba(78, 220, 216, 0.3);
+                            transform: translateY(-1px);
+                        }
+                        .vote-comment-button:active {
+                            transform: translateY(0);
+                            box-shadow: 0 2px 4px rgba(78, 220, 216, 0.2);
+                        }
+                        @keyframes slideIn {
+                            from {
+                                opacity: 0;
+                                transform: translateY(-10px);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+                        .comment {
+                            margin-bottom: 1.2rem;
+                            padding: 1.2rem;
+                            background: #ffffff;
+                            border-radius: 16px;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                            border: 1px solid rgba(0, 0, 0, 0.05);
+                        }
+                        .comment-header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 0.8rem;
+                            color: #666;
+                            font-size: 0.9rem;
+                        }
+                        .commenter-info {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.8rem;
+                        }
+                        .commenter-avatar {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            border: 2px solid #4edcd8;
+                        }
+                        .commenter-details {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0.2rem;
+                            display: inline;
+                        }
+                        .commenter-name {
+                            font-weight: 600;
+                            color: #333;
+                            font-size: 0.95rem;
+                        }
+            /* Trait badge style (make traits look like filter tags) */
+            .comment-trait {
+              display: inline-block;
+              padding: 0.25rem 0.6rem;
+              border-radius: 20px;
+              border: 1px solid #e6e6e6;
+              background: #fff;
+              color: #4edcd8;
+              font-weight: 700;
+              font-size: 0.82rem;
+              line-height: 1;
+              box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+              margin-left: 0.4rem;
+            }
+            .comment-trait:hover {
+              transform: translateY(-1px);
+              border-color: #4EDCD8;
+              color: #4EDCD8;
+            }
+                        .comment-date {
+                            display: none;
+                        }
+                        .comment-content {
+                            margin: 0;
+                            line-height: 1.4;
+                        }
+                        .comment-form {
+                            margin-bottom: 2rem;
+                        }
+                        .comment-box {
+                            border: 1px solid #eee;
+                            border-radius: 16px;
+                            padding: 1.2rem;
+                            background: #fff;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+                            transition: all 0.2s ease;
+                        }
+                        .comment-box:focus-within {
+                            box-shadow: 0 4px 16px rgba(78, 220, 216, 0.1);
+                            border-color: #4edcd8;
+                        }
+                        .comment-box-footer {
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                            gap: 1rem;
+                            margin-top: 1rem;
+                            padding-top: 1rem;
+                            border-top: 1px solid #eee;
+                        }
+                        .trait-select-wrapper {
+                            margin-right: auto;
+                        }
+            .trait-select {
+              padding: 0.6rem 0.9rem;
+              border: 1px solid #e0e0e0;
+              border-radius: 20px; /* pill */
+              width: 200px;
+              transition: all 0.18s ease;
+              cursor: pointer;
+              font-size: 0.92rem;
+              background: white;
+            }
+            .system-chips {
+              display: flex;
+              gap: 0.5rem;
+              align-items: center;
+            }
+            .system-chip {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 0.4rem 0.8rem;
+              border-radius: 20px;
+              border: 1px solid #00a79e;
+              background: #4EDCD8;
+              opacity: 30%;
+              color: #6B6A6A;
+              cursor: pointer;
+              font-size: 0.9rem;
+              transition: all 0.15s ease;
+            }
+            .system-chip:hover {
+              border-color: #4EDCD8;
+              color: #4EDCD8;
+              transform: translateY(-1px);
+            }
+            .system-chip.active {
+              border-bottom-left-radius: 0;
+              border-bottom-right-radius: 0;
+              background-color: #00a79e;
+              opacity: 100%;
+              color: white;
+            }
+            .system-chip input[type="checkbox"] {
+              appearance: none;
+              -webkit-appearance: none;
+              width: 14px;
+              height: 14px;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+              background: white;
+              display: inline-block;
+              position: relative;
+            }
+            .system-chip input[type="checkbox"]:checked {
+              background: #4EDCD8;
+              border-color: #4EDCD8;
+            }
+            .option-chip {
+              display: inline-flex;
+              align-items: center;
+              gap: .4rem;
+              padding: 0.35rem 0.7rem;
+              border-radius: 14px;
+              border: 1px solid #e0e0e0;
+              background: white;
+              color: #6B6A6A;
+              cursor: pointer;
+              font-size: 0.88rem;
+              transition: all .12s ease;
+              margin-right: 0.4rem;
+            }
+            .option-chip:hover { transform: translateY(-1px); border-color: #4EDCD8; color: #4EDCD8; }
+            .option-chip.selected { background: #4EDCD8; color: white; border-color: #4EDCD8; }
+            /* Dropdown (select) styling for option-select */
+            select.option-select {
+              appearance: none;
+              -webkit-appearance: none;
+              padding: 0.4rem 0.6rem;
+              border-radius: 10px;
+              border-top-left-radius: 0;
+              border-top-right-radius:  0;
+              border: 1px solid #00a79e;
+              background: #00a79e;
+              display: block;
+              color: white;
+              font-size: 0.92rem;
+              min-width: 220px;
+              overflow: hidden;
+            }
+            select.option-select[multiple] {
+              padding: 0.35rem;
+              min-height: 44px;
+            }
+            select.option-select:focus {
+              outline: none;
+              border-color: #4EDCD8;
+              box-shadow: 0 2px 6px rgba(78,220,216,0.12);
+            }
+                        .trait-select:hover, .trait-select:focus {
+                            border-color: #4edcd8;
+                            outline: none;
+                        }
+                        .comment-input {
+                            width: 80%;
+                            padding: 0.8rem;
+                            margin-bottom: 0.8rem;
+                            border: none;
+                            resize: none;
+                            outline: none;
+                            font-size: 0.95rem;
+                            transition: border-color 0.2s ease;
+                            
+                        }
+                        .comment-input:focus {
+                            border-bottom-color: #4edcd8;
+                            outline: none;
+                        }
+                        .title-input {
+                            width: 80%;
+                            padding: 0.8rem;
+                            margin-bottom: 0.8rem;
+                            border: none;
+                            outline: none;
+                            font-size: 1rem;
+                            font-weight: 600;
+                            transition: border-color 0.2s ease;
+                        }
+                        .title-input:focus {
+                            
+                            outline: none;
+                        }
+            .title-input::placeholder {
+              color: #999;
+              font-weight: normal;
+            }
+            .comment-title {
+              margin: 0 0 0.5rem 0;
+              font-size: 1.05rem;
+              color: #333;
+              font-weight: 600;
+            }
+      .trait-selections {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 1rem;
+              margin-top: 0.8rem;
+            }
+            /* Profile trait labels: make the small trait title look like a tag */
+            .trait .center:first-child {
+              display: inline-block;
+              padding: 0.25rem 0.6rem;
+              border-radius: 14px;
+              border: 1px solid #eee;
+              background: white;
+              color: #6B6A6A;
+              font-weight: 600;
+              font-size: 0.85rem;
+            }
+            .trait .trait-font {
+              margin-top: 0.35rem;
+              font-weight: 700;
+            }
+                        .trait-select {
+                            padding: 0.8rem;
+                            border: 1px solid #eee;
+                            border-radius: 12px;
+                            flex-grow: 1;
+                            max-width: 200px;
+                            transition: all 0.2s ease;
+                            cursor: pointer;
+                        }
+                        .trait-select:hover, .trait-select:focus {
+                            border-color: #4edcd8;
+                            outline: none;
+                        }
+                        .comment-button {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0.8rem;
+                            width: 44px;
+                            height: 44px;
+                            background: #e0e0e0;
+                            color: grey;
+                            border: none;
+                            border-radius: 12px;
+                            cursor: pointer;
+                            transition: all 0.2s ease;
+                            opacity: 0.7;
+                        }
+                        .comment-button.active {
+                            background: #4edcd8;
+                            opacity: 1;
+                            overflow: hidden;
+                            background-color: transparent
+                        }
+                        .comment-button:hover {
+                            transform: translateX(2px);
+                        }
+                        .comment-button svg {
+                            width: 22px;
+                            height: 22px;
+                        }
+                        @keyframes glowBorder {
+                            0% { box-shadow: 0 0 0 0 rgba(78, 220, 216, 0.4); }
+                            70% { box-shadow: 0 0 0 10px rgba(78, 220, 216, 0); }
+                            100% { box-shadow: 0 0 0 0 rgba(78, 220, 216, 0); }
+                        }
+                        .comment-box.submitted {
+                            animation: glowBorder 1s ease-out;
+                        }
+                        .comment-actions {
+                            margin-top: 0.8rem;
+                        }
+                        .like-button {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.4rem;
+                            background: none;
+                            border: none;
+                            padding: 0.4rem;
+                            cursor: pointer;
+                            color: #6B6A6A;
+                            transition: all 0.2s ease;
+                        }
+                        .like-button:hover {
+                            transform: scale(1.1);
+                        }
+                        .like-button.liked {
+                            color: #4EDCD8;
+                        }
+                        .like-button.liked .heart-icon {
+                            fill: #4EDCD8;
+                        }
+                        .heart-icon {
+                            width: 20px;
+                            height: 20px;
+                            transition: all 0.2s ease;
+                        }
+                        .like-count {
+                            font-size: 0.9rem;
+                            min-width: 1.5rem;
+                            text-align: left;
+                        }
+                        @keyframes heartBeat {
+                            0% { transform: scale(1); }
+                            25% { transform: scale(1.2); }
+                            50% { transform: scale(1); }
+                            75% { transform: scale(1.1); }
+                            100% { transform: scale(1); }
+                        }
+              .no-comments-message {
+                text-align: center;
+                padding: 2rem;
+                color: #666;
+                font-size: 0.95rem;
+                background: #f8f8f8;
+                border-radius: 12px;
+                margin: 1rem 0;
+              }
+
+                    `;
+                    document.head.appendChild(style);
+                });
+                </script>
+
+<%- include('partials/epilogue.ejs') %>
