@@ -141,8 +141,8 @@
                                         <option value="ESTJ">ESTJ</option>
                                       </select>
                                     </div>
-                                    <div class="enneagram-options" style="display:block; margin-top:0rem;">
-                                      <select class="option-select"  style="display:block; data-system="enneagram" size="16">
+                                    <div class="enneagram-options" style="display:none; margin-top:0rem;">
+                                      <select class="option-select" data-system="enneagram" size="16">
                                         <option value="1w2">1w2</option>
                                         <option value="2w3">2w3</option>
                                         <option value="3w2">3w2</option>
@@ -268,7 +268,7 @@
 
               // Activate this chip and show its container
               this.classList.add('active');
-              if (container) container.style.display = 'block';
+              if (container) container.style.display = 'flex';
             } else {
               // Deactivate this chip and hide/clear its container
               this.classList.remove('active');
@@ -295,7 +295,7 @@
               if (anySelected) {
                 if (systemChip && !systemChip.classList.contains('active')) systemChip.classList.add('active');
                 const container = document.querySelector(`.${system}-options`);
-                if (container) container.style.display = 'block';
+                if (container) container.style.display = 'flex';
               } else {
                 if (systemChip) systemChip.classList.remove('active');
                 const container = document.querySelector(`.${system}-options`);
