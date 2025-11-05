@@ -272,15 +272,14 @@
               const btnel = document.querySelector('.system-chip[data-system="'+system+'"]');
 
               const leftPosition = btnel.offsetLeft;
-              //console.log(leftPosition);
+              const elwidth = btnel.offsetWidth;
               const myElement = document.querySelector('.option-select[data-system="'+system+'"]');
-              
-              //console.log(myElement);
+
                if (myElement) { // Check if element exists for querySelector
-            myElement.style.width = '100px';
+            myElement.style.width = elwidth+'px';
             myElement.style.left = (leftPosition-37)+'px';
             myElement.style.position = 'relative';
-        }
+            }
               document.querySelectorAll('.system-options > div').forEach(div => div.style.display = 'none');
 
               // Activate this chip and show its container
