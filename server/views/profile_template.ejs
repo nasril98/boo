@@ -372,6 +372,7 @@
             // Build systems/tags HTML (supports legacy single 'trait' value)
             let systemsHtml = '';
             if (Array.isArray(comment.systems) && comment.systems.length) {
+              
               systemsHtml = comment.systems.map(s => `<span class="comment-trait">${s.toUpperCase()}</span>`).join(' ');
             } else if (comment.trait) {
               systemsHtml = `<span class="comment-trait">${comment.trait.toUpperCase()}</span>`;
@@ -380,11 +381,14 @@
             let traitsHtml = '';
             if (comment.traits) {
               Object.keys(comment.traits).forEach(sys => {
-                //console.log('Processing traits for system:', sys);                
                 const vals = comment.traits[sys] || [];
                 vals.forEach(v => {
+                  let bgimg="";
+                  if (sys=='zodiac') {
+                     bgimg=`style="background-image: url('/static/space.png');"`;
+                  }
                   const newString = v.replace("w", "<img src='static/wing.png' width='30%' alt='${v}'>");
-                    traitsHtml += `<span class="comment-trait">${newString}</span>`;
+                    traitsHtml += `<span class="comment-trait" ${bgimg}>${newString}</span>`;
                 });
               });
             }
