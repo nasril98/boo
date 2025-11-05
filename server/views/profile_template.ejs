@@ -110,8 +110,8 @@
                           <!-- Comment Form -->
                           <div class="comment-form" style="display: none;">
                             <div class="comment-box">
-                              
-                              <input type="text" id="comment-title" class="title-input" placeholder="Judul komentar" maxlength="50">
+
+                              <input type="text" id="comment-title" class="title-input" placeholder="Comment Title" maxlength="50">
                                <div class="trait-select-wrapper">
                                   <!-- Allow users to optionally select one or more personality systems -->
                                   <div class="system-chips">
@@ -251,15 +251,19 @@
             }
           }
           
+          
+
 
           // Monitor input fields and system checkboxes
           commentTitle.addEventListener('input', checkFormValidity);
           commentText.addEventListener('input', checkFormValidity);
           // system chip buttons: toggle active state and show/hide their dropdowns
           systemChips.forEach(chip => chip.addEventListener('click', function() {
+            //console.log('click');
             const system = this.dataset.system;
             const container = document.querySelector(`.${system}-options`);
             const willBeActive = !this.classList.contains('active');
+          
 
             if (willBeActive) {
               // Deactivate other chips and hide their containers so only this one shows
@@ -367,7 +371,8 @@
                 //console.log('Processing traits for system:', sys);                
                 const vals = comment.traits[sys] || [];
                 vals.forEach(v => {
-                    traitsHtml += `<span class="comment-trait">${v}</span>`;
+                  const newString = v.replace("w", "<img src='static/wing.png' width='30%' alt='${v}'>");
+                    traitsHtml += `<span class="comment-trait">${newString}</span>`;
                 });
               });
             }
@@ -845,8 +850,8 @@
               padding: 0.25rem 0.6rem;
               border-radius: 20px;
               border: 1px solid #e6e6e6;
-              background: #fff;
-              color: #4edcd8;
+              background: #4edcd8;
+              color: #fff;
               font-weight: 700;
               font-size: 0.82rem;
               line-height: 1;
@@ -856,7 +861,7 @@
             .comment-trait:hover {
               transform: translateY(-1px);
               border-color: #4EDCD8;
-              color: #4EDCD8;
+              color: #fff;
             }
                         .comment-date {
                             display: none;
@@ -977,7 +982,7 @@
               display: block;
               color: white;
               font-size: 0.92rem;
-              min-width: 220px;
+              width: stretch;
               overflow: hidden;
             }
             select.option-select[multiple] {
