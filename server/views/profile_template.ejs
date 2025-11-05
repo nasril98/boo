@@ -251,23 +251,36 @@
             }
           }
           
-          
-
-
           // Monitor input fields and system checkboxes
           commentTitle.addEventListener('input', checkFormValidity);
           commentText.addEventListener('input', checkFormValidity);
           // system chip buttons: toggle active state and show/hide their dropdowns
           systemChips.forEach(chip => chip.addEventListener('click', function() {
-            //console.log('click');
+            
             const system = this.dataset.system;
             const container = document.querySelector(`.${system}-options`);
             const willBeActive = !this.classList.contains('active');
-          
+            //console.log(system);
 
             if (willBeActive) {
+              //console.log();
               // Deactivate other chips and hide their containers so only this one shows
-              systemChips.forEach(c => { if (c !== this) c.classList.remove('active'); });
+              systemChips.forEach(c => { if (c !== this) 
+                //console.log(c); 
+                c.classList.remove('active');
+               });
+              const btnel = document.querySelector('.system-chip[data-system="'+system+'"]');
+
+              const leftPosition = btnel.offsetLeft;
+              //console.log(leftPosition);
+              const myElement = document.querySelector('.option-select[data-system="'+system+'"]');
+              
+              //console.log(myElement);
+               if (myElement) { // Check if element exists for querySelector
+            myElement.style.width = '100px';
+            myElement.style.left = (leftPosition-37)+'px';
+            myElement.style.position = 'relative';
+        }
               document.querySelectorAll('.system-options > div').forEach(div => div.style.display = 'none');
 
               // Activate this chip and show its container
