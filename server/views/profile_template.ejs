@@ -207,8 +207,8 @@
                                   </div>
                                   <span class="comment-date">4 Nov 2025</span>
                                 </div>
-                                <h4 class="comment-title">Contoh Judul</h4>
-                                <p class="comment-content">Saya setuju dengan tipe ISFJ. Dapat dilihat dari caranya yang sangat detail dan perhatian terhadap kebutuhan orang lain.</p>
+                                <h4 class="comment-title">Title Example</h4>
+                                <p class="comment-content">I agree with the ISFJ type. It can be seen from their very detailed approach and attention to the needs of others.</p>
                               <div class="comment-actions">
                                 <button class="like-button">
                                   <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -225,7 +225,7 @@
                   </div>
                 </div>
 
-                <!-- Script untuk handle komentar dengan localStorage -->
+                <!-- Script to handle comment submission -->
                 <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const commentForm = document.querySelector('.comment-form');
@@ -311,7 +311,7 @@
                         if (commentForm.style.display === 'none') {
                             commentForm.style.display = 'block';
                             commentForm.style.animation = 'slideDown 0.3s ease-out';
-                            commentText.focus(); // Auto focus textarea
+                            commentTitle.focus(); // Auto focus textarea
                             toggleButton.textContent = 'Close';
                         } else {
                             commentForm.style.animation = 'slideUp 0.3s ease-out';
@@ -337,6 +337,7 @@
 
                     // Add comment to UI
                     function addCommentToUI(comment) {
+                      // console.log('Adding comment to UI:', comment);
                         const commentElement = document.createElement('div');
                         commentElement.className = 'comment';
                         // ensure comment has id and likes for compatibility
@@ -362,22 +363,24 @@
             }
             // Build trait-specific chips (e.g. MBTI values) from comment.traits if present
             let traitsHtml = '';
+            //console.log('comment.traits:', comment.traits);
             if (comment.traits) {
               Object.keys(comment.traits).forEach(sys => {
+                //console.log('Processing traits for system:', sys);                
                 const vals = comment.traits[sys] || [];
                 vals.forEach(v => {
-                  traitsHtml += `<span class="comment-trait">${v}</span>`;
+                  console.log('Processing trait value for system:', v, 'Value:', v);
+                    traitsHtml += `<span class="comment-trait">${v}</span>`;
                 });
               });
             }
-
                         commentElement.innerHTML = `
               <div class="comment-header">
                 <div class="commenter-info">
                   <img src="static/40.jpg" class="commenter-avatar" alt="Avatar">
                   <div class="commenter-details">
                     <span class="commenter-name">John Smith</span>
-                    ${systemsHtml} ${traitsHtml}
+                    ${traitsHtml}
                   </div>
                 </div>
                 <span class="comment-date">${comment.date}</span>
@@ -397,7 +400,6 @@
                         commentsList.insertBefore(commentElement, commentsList.firstChild);
                         commentElement.style.animation = 'slideIn 0.3s ease-out';
                     }
-
 
           // Handle comment submitted
           submitButton.addEventListener('click', function() {
@@ -431,7 +433,6 @@
               likes: 0,
               profileId: profileId
             };
-
             // Save to localStorage
             const storageKey = `comments_${profileId}`;
             const existingComments = JSON.parse(localStorage.getItem(storageKey) || '[]');
@@ -610,8 +611,8 @@
                 const message = document.createElement('div');
                 message.className = 'no-comments-message';
                 message.textContent = activeFilter === 'all' 
-                  ? 'Belum ada komentar.' 
-                  : `Belum ada komentar untuk ${activeFilter.toUpperCase()}.`;
+                  ? 'No comments yet.' 
+                  : `No comments yet for ${activeFilter.toUpperCase()}.`;
                 commentsList.appendChild(message);
               }
             } else if (noCommentsMessage) {
